@@ -1,0 +1,2 @@
+This is the implementation of self user registration feature. JIRA ID MEOW-1
+
