@@ -1,2 +1,3 @@
 This is the implementation of self user registration feature. JIRA ID MEOW-1
+Based on feedback, added the functionality to support '-' character in the username
 
