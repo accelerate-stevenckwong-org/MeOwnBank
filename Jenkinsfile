@@ -27,6 +27,9 @@ pipeline {
         }
     }
     post {
+        always {
+            sh 'sleep 10s'
+        }
     }
 
 }
