@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'accelerate-stevenckwong', url: 'https://github.com/accelerate-stevenckwong-org/MeOwnBank/']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'accelerate-stevenckwong_at_Github', url: 'https://github.com/accelerate-stevenckwong-org/MeOwnBank/']]])
             }
         }
         stage('CI - Package') {
