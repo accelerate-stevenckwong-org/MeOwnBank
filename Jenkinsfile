@@ -8,19 +8,19 @@ pipeline {
         }
         stage('CI - Package') {
             steps {
-                sh sleep 1m
+                sh 'sleep 1m'
                 echo 'Compile, Build and Package'
             }
         }
         stage('CI - Deploy') {
             steps {
-                sh sleep 30s
+                sh 'sleep 30s'
                 echo 'Deploy Package to QA App Server'
             }
         }
         stage('CI - Test') {
             steps {
-                sh sleep 90s
+                sh 'sleep 90s'
                 echo 'Run some automated test'
             }
 
