@@ -1,0 +1,29 @@
+node {
+
+    //URL to Github repository https://github.com/<owner>/<repo>
+    def GITHUB_REPO_URL="https://github.com/accelerate-stevenckwong-org/MeOwnBank"
+
+    //VELOCITY_APP_NAME must match your Velocity pipeline application name
+    def VELOCITY_APP_NAME="Me Own Bank"
+
+    //Do not change below this line.
+    def GIT_COMMIT
+    
+    stage ('cloning the repository'){
+      currentBuild.displayName = "2.1.1.${BUILD_NUMBER}"
+      majorVersion="${BUILD_NUMBER}"
+      def scm = git branch: 'main', url: "${GITHUB_REPO_URL}"
+      GIT_COMMIT = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
+      echo "GIT_COMMIT=${GIT_COMMIT}"
+    }
+    stage ("Build") {
+        echo "Building ${VELOCITY_APP_NAME} (Build:${currentBuild.displayName}, GIT_COMMIT:${GIT_COMMIT})"
+        step($class: 'UploadBuild', 
+           tenantId: "5ade13625558f2c6688d15ce",
+           revision: "${GIT_COMMIT}",
+           appName: "${VELOCITY_APP_NAME}",
+           versionName:"${currentBuild.displayName}",
+           requestor: "admin", id: "${currentBuild.displayName}"
+        )
+    }
+}

@@ -1,0 +1,26 @@
+parameters([
+    string(name: 'buildNumber', description: 'The version of the application to deploy.')
+])
+node {
+  //Get value for VELOCITY_ENV_ID_PROD from "Download attributes from API" json file.
+  def VELOCITY_ENV_ID_DEV="5d0b59f0-a9f9-4d2d-9c3a-eff2303305e5"
+
+  //VELOCITY_APP_NAME must match your Velocity pipeline application name
+  def VELOCITY_APP_NAME="Me Own Bank"
+ 
+ currentBuild.displayName = "${buildNumber}"
+    stage ("Deploy to DEV") {
+        step([$class: 'UploadDeployment',
+            tenantId: "5ade13625558f2c6688d15ce",
+            versionName: "${currentBuild.displayName}",
+            versionExtId: "${currentBuild.displayName}",
+            type: 'Jenkins',
+            environmentId: "${VELOCITY_ENV_ID_DEV}",
+            environmentName: 'DEV',
+            appName: "${VELOCITY_APP_NAME}", 
+            description: 'MeOwnBank deployment to DEV',
+            initiator: "admin",
+            result: 'true' 
+        ])
+    }
+}

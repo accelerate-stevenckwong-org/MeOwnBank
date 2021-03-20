@@ -1,0 +1,28 @@
+{
+  "pipelineId": "dca08c38-e69c-4058-a38e-d3e23a8178dd",
+  "tenantId": "5ade13625558f2c6688d15ce",
+  "environments": [
+    {
+      "name": "Input",
+      "id": "224d1ba1-31f5-46ac-afd9-d37c0bdb2264"
+    },
+    {
+      "name": "DEV",
+      "id": "5d0b59f0-a9f9-4d2d-9c3a-eff2303305e5"
+    },
+    {
+      "name": "QA",
+      "id": "d1fed093-c6d4-43bf-9b85-e5918b7f3451"
+    },
+    {
+      "name": "PROD",
+      "id": "bd46ca67-889a-4ca6-b74c-5aaf2cee1ba2"
+    }
+  ],
+  "applications": [
+    {
+      "name": "Me Own Bank",
+      "id": "cdc5d584-123d-42d5-ae85-e6a03dc31330"
+    }
+  ]
+}
